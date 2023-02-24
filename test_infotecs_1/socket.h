@@ -4,13 +4,15 @@
 #include <iostream>
 #include <string>
 #include <cstring>
-#include <string.h>
-#include "stdlib.h"
+
+using std::cout;
+
 class Socket
 {
-    const int c_port = 8888;
-    struct sockaddr_in socket_addr;
+    const int c_port = 3425;
     int sock;
+    struct sockaddr_in socket_addr;
+
 public:
     Socket();
     void sendBuffer(int sum);

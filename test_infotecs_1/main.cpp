@@ -6,7 +6,7 @@ int main()
 {
 
     Streams streams;
-    std::thread t1([&streams](){
+    std::thread t1([&streams](){ //проверить многопточность
         streams.oneStream();
     });
     std::thread t2([&streams](){

@@ -1,5 +1,6 @@
 #include "streams.h"
 
+
 Streams::Streams()
 {
 
@@ -8,8 +9,10 @@ void Streams::oneStream(){
     while(true){
         std::string user;
         std::getline(std::cin, user);
-        format.stringChecking(user);
-        std::sort(user.begin(), user.end(), std::greater<char>());// заменить
+        if(format.stringChecking(user)){
+            throw std::invalid_argument("Error date input!");
+        }
+        std::sort(user.begin(), user.end(), std::greater<char>());
         format.stringFormatting(user);
         std::unique_lock<std::mutex> ulm(mtx);
         buffer.swap(user);
@@ -22,7 +25,7 @@ void Streams::twoStream(){
         int sum = 0;
         std::unique_lock<std::mutex> ulm(mtx);
         cv.wait(ulm, [this]{return !this->buffer.empty();});
-        std::cout << buffer << std::endl;
+        cout << buffer << std::endl;
         socket.connection();
         socket.sendBuffer(format.sum(buffer));
         buffer.clear();

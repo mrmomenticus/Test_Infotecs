@@ -1,8 +1,9 @@
 #ifndef STRINGPROCESSING_H
 #define STRINGPROCESSING_H
 #include <string>
-#include <algorithm>
-#include <iterator>
+
+
+
 class StringProcessing
 {
 public:

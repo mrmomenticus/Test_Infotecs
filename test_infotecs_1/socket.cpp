@@ -6,14 +6,16 @@ Socket::Socket()
 void Socket::connection(){
     sock = socket(AF_INET, SOCK_STREAM, 0);
     if(sock < 0){
-        std::cout << "Error! Socket dont created";
+        cout << strerror(errno)<<std::endl;
+        exit(0);
     }
     socket_addr.sin_family = AF_INET;
-    socket_addr.sin_port = htons(3425);
+    socket_addr.sin_port = htons(c_port);
     socket_addr.sin_addr.s_addr = htonl(INADDR_ANY);
     if(connect(sock, (struct sockaddr *)&socket_addr, sizeof(socket_addr)) < 0)
     {
-        std::cout << std::strerror(errno);
+        cout << strerror(errno)<<std::endl;
+        exit(0);
     };
 }
 void Socket::sendBuffer(int sum){

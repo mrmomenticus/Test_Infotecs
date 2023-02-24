@@ -4,8 +4,10 @@ StringProcessing::StringProcessing()
 {
 
 }
-bool StringProcessing::stringChecking(const std::string &str){
-    int len {0};
+bool StringProcessing::stringChecking(const std::string &str){ //проверка на 64 символа
+    if(str.length() > 64){
+        return true;
+    }
     if(str.empty()){
         return true;
     }
@@ -13,9 +15,8 @@ bool StringProcessing::stringChecking(const std::string &str){
         if(!std::isdigit(i)){
             return true;
         };
-        len++;
     }
-    return (len>64);
+    return false;
 }
 
 void StringProcessing::stringFormatting(std::string &str){ //подумать через итератор

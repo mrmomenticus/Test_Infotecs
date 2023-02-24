@@ -4,7 +4,7 @@ project(test_infotecs_2 LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-
+SET(CMAKE_C_COMPILER gcc)
 add_executable(test_infotecs_2 main.cpp socket.h socket.cpp)
 
 install(TARGETS test_infotecs_2

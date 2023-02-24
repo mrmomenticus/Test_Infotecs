@@ -3,11 +3,16 @@
 #include <arpa/inet.h>
 #include <iostream>
 #include <string.h>
+
+using std::cout;
+
 class Socket
 {
-    struct sockaddr_in socket_addr;
+    const int c_port = 3425;
     int sock;
-    const int c_port = 8888;
+    struct sockaddr_in socket_addr;
+
+
 
 public:
     Socket();
